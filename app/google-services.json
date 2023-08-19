@@ -1,0 +1,97 @@
+{
+  "project_info": {
+    "project_number": "802840735312",
+    "project_id": "hospital-c68c3",
+    "storage_bucket": "hospital-c68c3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802840735312:android:c4446ae25d90ffad582b55",
+        "android_client_info": {
+          "package_name": "com.Lasagna.HospitalFinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "802840735312-qogvauuuqd9nukqb4514db2f77e33mu6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBz63csfVdmjk0kOqtJ-tDBjQYE07j3ZdQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "802840735312-qogvauuuqd9nukqb4514db2f77e33mu6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802840735312:android:6a0d62aa89dc87c2582b55",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "802840735312-qogvauuuqd9nukqb4514db2f77e33mu6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBz63csfVdmjk0kOqtJ-tDBjQYE07j3ZdQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "802840735312-qogvauuuqd9nukqb4514db2f77e33mu6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802840735312:android:b0dfeb905baba249582b55",
+        "android_client_info": {
+          "package_name": "com.lasagna.hospitalfinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "802840735312-qogvauuuqd9nukqb4514db2f77e33mu6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBz63csfVdmjk0kOqtJ-tDBjQYE07j3ZdQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "802840735312-qogvauuuqd9nukqb4514db2f77e33mu6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

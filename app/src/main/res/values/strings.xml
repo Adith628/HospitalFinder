@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">HospitalFinder</string>
+    <string name="hello" >Hey there</string>
+    <string name="firstname" >FirstName</string>
+    <string name="lastname" >LastName</string>
+    <string name="create_acc" >Create An account</string>
+</resources>
