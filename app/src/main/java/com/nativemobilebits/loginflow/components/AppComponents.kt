@@ -3,9 +3,12 @@ package com.nativemobilebits.loginflow.components
 import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardActions
@@ -14,11 +17,14 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Logout
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -42,6 +48,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -456,7 +463,8 @@ fun NavigationItemRow(item: NavigationItem,
             .fillMaxWidth()
             .clickable {
                 onNavigationItemClicked.invoke(item)
-            }.padding(all = 16.dp)
+            }
+            .padding(all = 16.dp)
     ) {
 
         Icon(
@@ -490,7 +498,145 @@ fun NavigationDrawerText(title: String, textUnit: TextUnit,color: Color) {
     )
 }
 
+@Composable
+fun Header(value: String?){
+
+    Text(text = value?:"Name",
+            modifier = Modifier
+                .padding(horizontal = 15.dp, vertical = 20.dp)
+                ,
+            style = TextStyle(
+                color = Color.DarkGray,
+                fontSize = 50.sp,
+                fontWeight = FontWeight.Bold,
+                fontStyle = FontStyle.Normal,
+            )
+        )
+
+}
+
+@Composable
+fun Speciality(value: String?){
+
+    Text(text = value?:"S",
+        modifier = Modifier
+            .padding(horizontal = 15.dp, vertical = 20.dp)
+        ,
+        style = TextStyle(
+            color = Color.DarkGray,
+            fontSize = 25.sp,
+            fontWeight = FontWeight.SemiBold,
+            fontStyle = FontStyle.Normal,
+        )
+    )
+
+}
+
+@Composable
+fun HorizontalScrollbar() {
+    Column(
+        modifier = Modifier
+            .height(300.dp)
+
+    ) {
+        LazyRow(
+            modifier = Modifier
+                .fillMaxSize()
+//                .background(Color.LightGray)
+        ) {
+            items(10) { index ->
+                Card(
+
+                    modifier = Modifier
+                        .width(300.dp)
+                        .height(250.dp)
+                        .padding(16.dp)
+                        .clip(shape = RoundedCornerShape(35.dp))
+
+                ) {
+                    Box(
+
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(Color.LightGray)
+                            ,
+
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = index.toString(),
+                            fontSize = 16.sp,
+                            color = Color.White
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
 
 
+@Composable
+fun Specialities(){
+    LazyColumn(
+        modifier = Modifier
 
+            .padding(horizontal = 10.dp, vertical = 15.dp),
+        contentPadding = PaddingValues(horizontal = 16.dp)
+    ) {
+        items(15) { index ->
+            if (index <= 5) {
+                Row(
+                    modifier = Modifier
+                        .clip(shape = RoundedCornerShape(20.dp))
+                        .fillMaxWidth()
+                        .padding(vertical = 15.dp)
+                        .background(Color.LightGray)
+
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .weight(1f)
+                            .width(380.dp)
+                            .height(100.dp)
+                            .background(Color.LightGray)
+                    ) {
+                        // Content for each row
+                        Text(
+                            text = index.toString(),
+                            fontSize = 16.sp,
+                            color = Color.White
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun SearchBar() {
+    var text by remember { mutableStateOf("") }
+    val localFocusManager = LocalFocusManager.current
+    TextField(
+        value = text,
+        onValueChange = { text = it },
+        label = { Text("Search") },
+        leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
+        modifier = Modifier
+            .width(400.dp)
+            .padding(horizontal = 10.dp)
+            .clip(shape = RoundedCornerShape(50)),
+        singleLine = true,
+        maxLines = 1,
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Password,
+            imeAction = ImeAction.Done
+        ),
+        keyboardActions = KeyboardActions {
+            localFocusManager.clearFocus()
+        },
+
+    )
+}
 
