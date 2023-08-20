@@ -1,4 +1,4 @@
-# Hospital Finder App
+# MediNex : Smart Hospital Finder and Emergency Response App
 
 ## Problem Statement
 
