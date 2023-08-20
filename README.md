@@ -60,6 +60,11 @@ MediNex collaborates with medical professionals and specialists to provide accur
 - Integrate real-time appointment scheduling with hospitals.
 - Enhance UI with animations and transitions.
 - Collaborate with hospitals to ensure up-to-date information.
+- 
+##Demo Video:
+framework : https://drive.google.com/file/d/1FjzIlSEkcPNBxxrrpUkfqcpTq1c-TEP8/view?usp=drive_link <br>
+protype : https://drive.google.com/file/d/1AbycPJW7EEHkxRAb9AtuDS_V3RQEtUcY/view?usp=sharing </br>
+          https://drive.google.com/file/d/1nypJ9_Nc0EhLzCXRlDIqEdaYUwrBNLy1/view?usp=drive_link <br>
 
 
 ## License
