@@ -39,6 +39,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -54,7 +55,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.nativemobilebits.loginflow.R
 import com.nativemobilebits.loginflow.data.NavigationItem
+import com.nativemobilebits.loginflow.navigation.PostOfficeAppRouter
+import com.nativemobilebits.loginflow.navigation.Screen
+import com.nativemobilebits.loginflow.screens.AmbulanceMap
 import com.nativemobilebits.loginflow.ui.theme.*
+
+
 
 @Composable
 fun NormalTextComponent(value: String) {
@@ -532,60 +538,94 @@ fun Speciality(value: String?){
 
 }
 
-@Composable
-fun HorizontalScrollbar() {
-    Column(
-        modifier = Modifier
-            .height(300.dp)
+    @Composable
+    fun HorizontalScrollbar(
 
     ) {
-        LazyRow(
+
+        val title = arrayOf(
+            "EMERGENCY",
+            "NearBy",
+            "Find",
+            "Profile"
+        )
+        var count=0
+        Column(
             modifier = Modifier
-                .fillMaxSize()
-//                .background(Color.LightGray)
+                .height(300.dp)
+
         ) {
-            items(10) { index ->
-                Card(
+            LazyRow(
+                modifier = Modifier
+                    .fillMaxSize()
+                //                .background(Color.LightGray)
+            ) {
+                items(3) { index ->
 
-                    modifier = Modifier
-                        .width(300.dp)
-                        .height(250.dp)
-                        .padding(16.dp)
-                        .clip(shape = RoundedCornerShape(35.dp))
+                    Button(colors=ButtonDefaults.buttonColors(Color.Transparent,),
+                        elevation = ButtonDefaults.elevation(0.dp,0.dp),
+                        onClick = {PostOfficeAppRouter.navigateTo(Screen.AmbulanceMap)
 
-                ) {
-                    Box(
-
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .background(Color.LightGray)
-                            ,
-
-                        contentAlignment = Alignment.Center
+                        }
                     ) {
-                        Text(
-                            text = index.toString(),
-                            fontSize = 16.sp,
-                            color = Color.White
-                        )
+                        Card(
+
+                            modifier = Modifier
+                                .width(300.dp)
+                                .height(250.dp)
+                                .padding(16.dp)
+                                .clip(shape = RoundedCornerShape(35.dp))
+                                .background(Color.White)
+
+                        ) {
+                            Box(
+
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .background(Color.LightGray),
+                                contentAlignment = Alignment.Center,
+
+
+                                )
+                            {
+                                Text(
+                                    text = title[count],
+                                    fontSize = 30.sp,
+                                    color = Color.White
+                                )
+                            }
+                        }
+                        if (count == 3) {
+                            count = 0
+                        } else {
+                            count += 1
+                        }
                     }
                 }
             }
         }
     }
-}
 
-
+var count=0
+var no=0;
 @Composable
 fun Specialities(){
+    val hoaddrs = arrayOf(
+        "Sunrise Hospital,Seaport-Airport Rd",
+        "Samartian Hospital,Pukkattupady",
+        "Thaqdees Hospitals Limited,Edathala",
+        "Lakshmi Hospital,Sub Jail Rd",
+        "Thrikkakara PHC,Near Collectorate"
+    )
+
     LazyColumn(
         modifier = Modifier
 
             .padding(horizontal = 10.dp, vertical = 15.dp),
         contentPadding = PaddingValues(horizontal = 16.dp)
     ) {
-        items(15) { index ->
-            if (index <= 5) {
+        items(4) { index ->
+            if (index <= 4) {
                 Row(
                     modifier = Modifier
                         .clip(shape = RoundedCornerShape(20.dp))
@@ -594,6 +634,12 @@ fun Specialities(){
                         .background(Color.LightGray)
 
                 ) {
+                    Button(colors=ButtonDefaults.buttonColors(Color.Transparent,),
+                        elevation = ButtonDefaults.elevation(0.dp,0.dp),
+                        onClick = { PostOfficeAppRouter.navigateTo(Screen.Hospital)}
+                    )
+                            {
+                                no=count
                     Box(
                         modifier = Modifier
                             .weight(1f)
@@ -603,16 +649,32 @@ fun Specialities(){
                     ) {
                         // Content for each row
                         Text(
-                            text = index.toString(),
-                            fontSize = 16.sp,
-                            color = Color.White
+                            text = hoaddrs[count],
+                            fontSize = 12.sp,
+                            fontStyle = FontStyle.Italic,
+                            fontFamily = FontFamily.Serif,
+                            color = Color.White,
+                            modifier = Modifier
+                                .padding(vertical = 35.dp)
+                                .padding(horizontal = 15.dp)
+
                         )
                     }
                 }
+                        }
             }
-        }
+                if(count==4)
+                {
+                    count=0
+                }
+                else{count+=1}
+
+            }
+
+
     }
 }
+
 
 @Composable
 fun SearchBar() {
@@ -638,5 +700,30 @@ fun SearchBar() {
         },
 
     )
+}
+
+@Composable
+fun AmbulanceMapRender(){
+
+}
+
+@Composable
+fun Details(){
+    val address = arrayOf("Sunrise Hospital,\nSeaport-Airport Rd\n Pin Code : 683561\n Contact No: 9061132571\n",
+        "Samartian Hospital,\nPukkattupady\nPin Code :683561 \n Contact No: 8848868646")
+    Surface() {
+        Text(
+            text = address[0],
+            fontSize = 30.sp,
+            fontWeight = FontWeight.SemiBold,
+            fontStyle = FontStyle.Normal,
+            fontFamily = FontFamily.Serif,
+            color = Color.LightGray,
+            modifier = Modifier
+                .padding(vertical = 35.dp)
+                .padding(horizontal = 15.dp)
+
+        )
+    }
 }
 

@@ -67,17 +67,18 @@ fun HomeScreen(homeViewModel: HomeViewModel = viewModel()) {
                 })
         }
 
+
     ) { paddingValues ->
 
         Surface(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.White)
+                .background(Color.LightGray)
                 .padding(paddingValues)
         ) {
             Column(modifier = Modifier.fillMaxSize()) {
 
-                Header("Hey there..!")
+                Header("Welcome !")
                 HorizontalScrollbar()
                 
                 Speciality("Search by speciality")
