@@ -11,9 +11,10 @@ MediNex is an innovative mobile application designed to revolutionize the way in
 
 - Android Development: Android Studio with Kotlin
 - UI Framework: Jetpack Compose
-- Backend Integration: Retrofit for API calls
-- Geolocation: Android Location Services
-- Database: Room Persistence Library
+- Backend Integration: Cotlin
+- Geolocation: Google Map API
+- Database: Firebase
+- Authentication: Firebase
 - Deployment: Google Play Store
 
 ## Problem Solved
